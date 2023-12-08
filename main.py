@@ -54,18 +54,18 @@ data.append(age)
 while True:
     try:
         # we collect data from the user first
-        status = input('Enter Your Marital Status (S/M): ')
+        status = input('Enter Your Marital Status (Single/Married): ')
         # then we capitalize it for presentation and further processing
-        s = status.capitalize()
+        s = status.upper()
         # this if block checks for correct data has been input
-        if s == "S" or s == "M":
+        if s == "SINGLE" or s == "MARRIED":
             # basic print coz am new
             print("Marital Status:", s)
             # if the Valid input is captured, we exit the loop
             break
         else:
             # this message will be printed out if the valid input is not captured
-            print("Specify with Single (S) or Married (M)")
+            print("Specify with Single or Married")
             # the except block will catch anything freaky
     except Exception as e:
         print(f"An error occurred: {e}")
@@ -73,4 +73,22 @@ while True:
 data.append(s)
 # run it through as sorter and send them to the respective groups, data structures
 print(data)
+
+
 # the groups are; sunday school, english women or ushirika, husbands, youth
+# sorting function
+def sorter():
+    # youth
+    if int(data[2]) < 15:
+        print("You are part of the Sunday School")
+    elif int(data[2]) >= 15 > 18:
+        print("You are part of the Teens")
+    elif int(data[2]) >= 18 and data[3] == 'SINGLE':
+        print("You are part of the Youth")
+    elif data[1] == 'F' and int(data[2]) >= 18 and data[3] == 'MARRIED':
+        print("You can join the English women Group or Ushirika wa Wanawake wa Kristo")
+    elif data[1] == 'M' and int(data[2]) >= 18 and data[3] == 'MARRIED':
+        print("You can join the Christians Husband Fellowship")
+
+
+print(sorter())
